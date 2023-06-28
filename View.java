@@ -74,6 +74,7 @@ public class View extends JFrame implements ActionListener {
 
     public void initEditor() {
         htmlTextPane.setContentType("text/html");
+        plainTextPane.setContentType("text/html");
         tabbedPane.add("HTML", new JScrollPane(htmlTextPane));
         tabbedPane.add("Текст", new JScrollPane(plainTextPane));
         tabbedPane.setPreferredSize(null);
@@ -118,5 +119,22 @@ public class View extends JFrame implements ActionListener {
 
     public void resetUndo() {
         undoManager.discardAllEdits();
+    }
+
+    public boolean isHtmlTabSelected() {
+        return tabbedPane.getSelectedIndex() == 0;
+    }
+
+    public void selectHtmlTab() {
+        tabbedPane.setSelectedIndex(0);
+        resetUndo();
+    }
+
+    public void update() {
+        htmlTextPane.setDocument(controller.getDocument());
+    }
+
+    public void showAbout() {
+        JOptionPane.showMessageDialog(null, "Program version 1.0.0", "developed by Fuat Safiulin", JOptionPane.INFORMATION_MESSAGE);
     }
 }
