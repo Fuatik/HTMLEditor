@@ -20,7 +20,7 @@ public class MenuHelper {
     }
 
     public static JMenuItem addMenuItem(JMenu parent, String text, Action action) {
-        JMenuItem menuItem = addMenuItem(parent, action);
+        JMenuItem menuItem = add MenuItem(parent, action);
         menuItem.setText(text);
         return menuItem;
     }
