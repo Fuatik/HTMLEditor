@@ -44,7 +44,15 @@ public class View extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent actionEvent) {
+        switch (actionEvent.getActionCommand()) {
+            case "Новый" : controller.createNewDocument(); break;
+            case "Открыть" : controller.openDocument(); break;
+            case "Сохранить" : controller.saveDocument(); break;
+            case "Сохранить как..." : controller.saveDocumentAs(); break;
+            case "Выход" : controller.exit(); break;
+            case "О программе" : showAbout();
+        }
 
     }
 
@@ -89,7 +97,15 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void selectedTabChanged() {
-
+        switch (tabbedPane.getSelectedIndex()) {
+            case 0:
+                controller.setPlainText(plainTextPane.getText());
+                break;
+            case 1:
+                plainTextPane.setText(controller.getPlainText());
+                break;
+        }
+        resetUndo();
     }
 
     public boolean canUndo() {
@@ -135,6 +151,8 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void showAbout() {
-        JOptionPane.showMessageDialog(null, "Program version 1.0.0", "developed by Fuat Safiulin", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+                "Program version 1.0.0", "developed by Fuat Safiulin",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 }
