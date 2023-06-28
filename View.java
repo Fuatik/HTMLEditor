@@ -152,7 +152,7 @@ public class View extends JFrame implements ActionListener {
 
     public void showAbout() {
         JOptionPane.showMessageDialog(null,
-                "Program version 1.0.0", "developed by Fuat Safiulin",
+                "Program version 1.0.0", "Информация о программе",
                 JOptionPane.INFORMATION_MESSAGE);
     }
 }
