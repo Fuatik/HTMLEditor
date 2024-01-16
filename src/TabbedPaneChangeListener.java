@@ -1,5 +1,3 @@
-package com.javarush.task.task32.task3209.listeners;
-
 import com.javarush.task.task32.task3209.View;
 
 import javax.swing.event.ChangeEvent;
